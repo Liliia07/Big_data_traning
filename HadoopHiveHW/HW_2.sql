@@ -1,0 +1,6 @@
+CREATE TABLE top_5_worst_delayed_airlines AS 
+SELECT a.IATA_CODE, a.AIRLINE, AVG(f.DEPARTURE_DELAY) AS AVG_DEPARTURE_DELAY
+  FROM flights f JOIN airlines a ON (f.airline= a.iata_code)
+ GROUP BY a.IATA_CODE, a.AIRLINE
+ ORDER BY avg_DEPARTURE_DELAY DESC
+ LIMIT 5;
